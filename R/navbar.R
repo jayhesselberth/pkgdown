@@ -6,14 +6,12 @@ data_navbar <- function(pkg = ".", depth = 0L) {
   default <- default_navbar(pkg)
 
   navbar <- list(
-    title =  pkg$meta$navbar$title %||% default$title,
-    type =   pkg$meta$navbar$type  %||% default$type,
-    left =   pkg$meta$navbar$left  %||% default$left,
-    right =  pkg$meta$navbar$right  %||% default$right
+    title = pkg$meta$navbar$title %||% default$title,
+    type = pkg$meta$navbar$type %||% default$type,
+    items = pkg$meta$navbar$items %||% default$items
   )
 
-  navbar$left <- render_navbar_links(navbar$left, depth = depth)
-  navbar$right <- render_navbar_links(navbar$right, depth = depth)
+  navbar$items <- render_navbar_links(navbar$items, depth = depth)
 
   print_yaml(navbar)
 }
@@ -36,7 +34,27 @@ render_navbar_links <- function(x, depth = 0L) {
   if (depth != 0L) {
     x <- lapply(x, tweak)
   }
-  rmarkdown::navbar_links_html(x)
+
+  navbar_links_html(x)
+}
+
+navbar_links_html <- function(x) {
+
+}
+
+navbar_dropdown_item <- function(x) {
+
+}
+
+navbar_icon_item <- function(x) {
+
+}
+
+navbar_text_item <- function(x) {
+  paste0("<li class='nav-item'>",
+        "<a class='nav-link' href='", x$href, "'>",
+        x$text, "</a>",
+        "</li>")
 }
 
 # Default navbar ----------------------------------------------------------
@@ -44,11 +62,12 @@ render_navbar_links <- function(x, depth = 0L) {
 default_navbar <- function(pkg = ".") {
   pkg <- as_pkgdown(pkg)
 
-  left <- list()
+  items <- list()
 
-  left$home <- list(
+  items$home <- list(
     icon = "fa-home fa-lg",
-    href = "index.html"
+    href = "index.html",
+    align = "left"
   )
 
   vignettes <- pkg$vignettes
@@ -57,15 +76,17 @@ default_navbar <- function(pkg = ".") {
     intro <- vignettes[pkg_intro, , drop = FALSE]
     vignettes <- vignettes[!pkg_intro, , drop = FALSE]
 
-    left$intro <- list(
+    items$intro <- list(
       text = "Get Started",
-      href = paste0("articles/", intro$file_out)
+      href = paste0("articles/", intro$file_out),
+      align = "left"
     )
   }
 
-  left$reference <- list(
+  items$reference <- list(
     text = "Reference",
-    href = "reference/index.html"
+    href = "reference/index.html",
+    align = "left"
   )
 
   if (nrow(vignettes) > 0) {
@@ -73,28 +94,30 @@ default_navbar <- function(pkg = ".") {
       vignettes$title, vignettes$file_out,
       ~ list(text = .x, href = paste0("articles/", .y)))
 
-    left$articles <- list(
+    items$articles <- list(
       text = "Articles",
-      menu = articles
+      menu = articles,
+      align = "left"
     )
   }
 
   if (has_news(pkg$path)) {
-    left$news <- list(
+    items$news <- list(
       text = "News",
-      href = "news/index.html"
+      href = "news/index.html",
+      align = "left"
     )
   }
 
-  right <- purrr::compact(list(
-    github_link(pkg$path)
+  items$gh <- purrr::flatten(list(
+    github_link(pkg$path),
+    align = "right"
   ))
 
   print_yaml(list(
     title = pkg$package,
     type = "default",
-    left = unname(left),
-    right = unname(right)
+    items = unname(items)
   ))
 }
 

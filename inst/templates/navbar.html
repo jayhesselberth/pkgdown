@@ -1,20 +1,26 @@
 {{#navbar}}
-<nav class="navbar navbar-{{{type}}} navbar-expand-lg bg-dark" role="navigation">
+<nav class="navbar fixed-top navbar-{{{type}}} bg-{{{bg}}} navbar-expand-md" role="navigation">
   <a class="navbar-brand" href="{{#site}}{{root}}{{/site}}index.html">{{title}}</a>
-  <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
+
   <div id="navbar" class="navbar-collapse collapse">
-    {{#left}}
-    <ul class="navbar-nav mr-auto">
+    {{#items}}
+    <ul class="navbar-nav">
       {{{.}}}
     </ul>
-    {{/left}}
-    {{#right}}
-    <ul class="navbar-nav navbar-right">
-      {{{.}}}
-    </ul>
-    {{/right}}
-  </div><!--/.nav-collapse -->
-</nav><!--/.navbar -->
+    {{/items}}
+  </div>
+
+  <div class="input-group">
+    <input type="text" class="form-control">
+    <span class="input-group-btn">
+      <button class="btn btn-secondary" type="button">
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+      </button>
+    </span>
+  </div>
+
+</nav>
 {{/navbar}}
