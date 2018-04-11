@@ -19,8 +19,9 @@
 #'   If `""` (the default), prints to standard out.
 #' @param depth Depth of path relative to base directory.
 #' @param quiet If `quiet`, will suppress output messages
+#' @param tidy If `tidy`, will tidy HTML output
 #' @export
-render_page <- function(pkg = ".", name, data, path = "", depth = NULL, quiet = FALSE) {
+render_page <- function(pkg = ".", name, data, path = "", depth = NULL, tidy = TRUE, quiet = FALSE) {
   pkg <- as_pkgdown(pkg)
 
   if (is.null(depth)) {
@@ -41,6 +42,19 @@ render_page <- function(pkg = ".", name, data, path = "", depth = NULL, quiet = 
   # render complete layout
   template <- find_template("layout", name, template_path = template_path(pkg))
   rendered <- render_template(template, components)
+
+  if (tidy) {
+    rendered <- htmltidy::tidy_html(
+      rendered,
+      option = list(
+        TidyDocType="html5",
+        TidyWrapLen=200,
+        TidyMakeClean=TRUE,
+        TidyIndentContent=TRUE
+      )
+    )
+  }
+
   write_if_different(pkg, rendered, path, quiet = quiet)
 }
 

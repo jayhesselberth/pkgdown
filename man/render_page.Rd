@@ -5,7 +5,7 @@
 \alias{data_template}
 \title{Render page with template}
 \usage{
-render_page(pkg = ".", name, data, path = "", depth = NULL,
+render_page(pkg = ".", name, data, path = "", depth = NULL, tidy = TRUE,
   quiet = FALSE)
 
 data_template(pkg = ".", depth = 0L)
@@ -30,6 +30,8 @@ See the full contents by running \code{data_template()}.}
 If \code{""} (the default), prints to standard out.}
 
 \item{depth}{Depth of path relative to base directory.}
+
+\item{tidy}{If \code{tidy}, will tidy HTML output}
 
 \item{quiet}{If \code{quiet}, will suppress output messages}
 }

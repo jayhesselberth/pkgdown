@@ -1,6 +1,7 @@
 #' @importFrom magrittr %>%
 #' @importFrom roxygen2 roxygenise
 #' @importFrom R6 R6Class
+#' @importFrom htmltidy tidy_html
 #' @import rlang
 #' @import fs
 NULL
