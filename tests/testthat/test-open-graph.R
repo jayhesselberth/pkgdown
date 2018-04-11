@@ -15,10 +15,10 @@ test_that("og tags are populated on index.html", {
 
 test_that("og tags are populated on reference pages", {
   pork_html <- read_lines(path(pkg$dst_path, "reference", "pulledpork.html"))
-  desc <- '<meta property="og:description" content="Pulled pork is delicious" />'
-  expect_true(desc %in% pork_html)
-  img <- '<meta property="og:image" content="http://example.com/pkg/logo.png" />'
-  expect_true(img %in% pork_html)
+  desc <- '<meta property="og:description" content="Pulled pork is delicious">'
+  expect_true(desc %in% trimws(pork_html))
+  img <- '<meta property="og:image" content="http://example.com/pkg/logo.png">'
+  expect_true(img %in% trimws(pork_html))
 })
 
 test_that("og tags are populated on vignettes", {
