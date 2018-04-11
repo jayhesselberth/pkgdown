@@ -50,6 +50,7 @@ render_page <- function(pkg = ".", name, data, path = "", depth = NULL, tidy = T
         TidyDocType="html5",
         TidyWrapLen=200,
         TidyMakeClean=TRUE,
+        TidyDropEmptyElems=FALSE,
         TidyIndentContent=TRUE
       )
     )
