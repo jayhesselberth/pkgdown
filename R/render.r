@@ -45,7 +45,7 @@ render_page <- function(pkg = ".", name, data, path = "", depth = NULL, tidy = T
 
   if (tidy) {
     rendered <- htmltidy::tidy_html(
-      rendered,
+      xml2::read_html(rendered),
       option = list(
         TidyDocType="html5",
         TidyWrapLen=200,
@@ -54,6 +54,8 @@ render_page <- function(pkg = ".", name, data, path = "", depth = NULL, tidy = T
         TidyIndentContent=TRUE
       )
     )
+
+    rendered <- as.character(rendered)
   }
 
   write_if_different(pkg, rendered, path, quiet = quiet)
