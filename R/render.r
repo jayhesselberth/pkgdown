@@ -50,21 +50,6 @@ render_page <- function(pkg = ".", name, data, path = "", depth = NULL, tidy = T
   write_if_different(pkg, rendered, path, quiet = quiet)
 }
 
-html_tidy <- function(html) {
-  html <- htmltidy::tidy_html(
-    xml2::read_html(html),
-    option = list(
-      TidyDocType="html5",
-      TidyWrapLen=200,
-      TidyMakeClean=TRUE,
-      TidyDropEmptyElems=FALSE,
-      TidyIndentContent=TRUE
-    )
-  )
-
-  as.character(html)
-}
-
 #' @export
 #' @rdname render_page
 data_template <- function(pkg = ".", depth = 0L) {
