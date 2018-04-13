@@ -251,17 +251,16 @@ html_tidy <- function(html) {
   html <- htmltidy::tidy_html(
     xml2::read_html(html),
     option = list(
-      TidyDocType="html5",
-      TidyWrapLen=200,
-      TidyMakeClean=TRUE,
-      TidyDropEmptyElems=FALSE,
-      TidyIndentContent=TRUE
+      TidyDocType = "html5",
+      TidyWrapLen = 200,
+      TidyMakeClean = TRUE,
+      TidyDropEmptyElems = FALSE,
+      TidyIndentContent = TRUE
     )
   )
 
   as.character(html)
 }
-
 # Update file on disk -----------------------------------------------------
 
 update_html <- function(path, tweak, ...) {
