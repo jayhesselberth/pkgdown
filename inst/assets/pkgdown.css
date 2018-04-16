@@ -220,11 +220,6 @@ a.sourceLine:hover {
 
 /* Docsearch -------------------------------------------------------------- */
 
-.ds-dataset-1 {
-  overflow-y: auto!important;
-  max-height: 80vh!important;
-}
-
 .algolia-autocomplete {
   display: block!important;
   -webkit-box-flex: 1;
@@ -255,9 +250,9 @@ a.sourceLine:hover {
 
 .algolia-autocomplete .ds-dropdown-menu [class^=ds-dataset-] {
   padding: 0!important;
-  overflow: visible!important;
   background-color: rgb(255,255,255)!important;
-  border: 0!important
+  border: 0!important;
+  max-height: 80vh;
 }
 
 .algolia-autocomplete .ds-dropdown-menu .ds-suggestions {
