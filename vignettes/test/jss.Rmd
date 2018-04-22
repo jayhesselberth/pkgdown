@@ -9,10 +9,7 @@ author:
     url: http://rstudio.com
   - name: Second Author
     affiliation: Affiliation
-title:
-  plain:     "Test: JSS article"
-  formatted: "Test: JSS article"
-  short:     "Test: JSS article"
+title: "Test: JSS article"
 abstract: >
   The abstract of the article.
 keywords:
