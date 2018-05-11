@@ -16,10 +16,10 @@ knitr::opts_chunk$set(
 
 [![Travis-CI Build Status](https://travis-ci.org/r-lib/pkgdown.svg?branch=master)](https://travis-ci.org/r-lib/pkgdown)
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/pkgdown)](https://cran.r-project.org/package=pkgdown)
+[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/pkgdown)](https://cran.r-project.org/package=pkgdown)
 [![Coverage Status](https://img.shields.io/codecov/c/github/r-lib/pkgdown/master.svg)](https://codecov.io/github/r-lib/pkgdown?branch=master)
 
-pkgdown is designed to make it quick and easy to build a website for your package. You can see pkgdown in action at <http://pkgdown.r-lib.org>: this is the output of pkgdown applied to the latest version of pkgdown. Learn more in `vignette("pkgdown")` or `?build_site`.
+pkgdown is designed to make it quick and easy to build a website for your package. You can see pkgdown in action at <https://pkgdown.r-lib.org>: this is the output of pkgdown applied to the latest version of pkgdown. Learn more in `vignette("pkgdown")` or `?build_site`.
 
 ## Installation
 
@@ -60,11 +60,11 @@ Here are a few examples created by people contributors to pkgdown:
   [[source](https://github.com/rnabioco/valr)]: 
   read and manipulate genome intervals and signals.
 
-* [mkin](http://jranke.github.io/mkin/)
+* [mkin](https://jranke.github.io/mkin/)
   [[source](https://github.com/jranke/mkin)]:
   calculation routines based on the FOCUS Kinetics Report
 
-* [NMF](http://renozao.github.io/NMF/master/index.html)
+* [NMF](https://renozao.github.io/NMF/master/index.html)
   [[source](https://github.com/renozao/NMF)]:
   a framework to perform non-negative matrix factorization (NMF).
 
